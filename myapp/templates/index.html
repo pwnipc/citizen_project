@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<img src="{% static 'images/offensivecon.jpg' %}" alt="some lady in a hoodie" width="400">
+<h1>Hello from my template</h1>
+<p>This is a real HTML page</p>
+<h2>{{ message |default:"Value not Set" }}</h2>
+
+{% if  is_authenticated %}
+    <p>Hello {{ name | lower }}</p>
+{% else %}
+    Please Log in.
+{% endif %}
+
+<ul>
+    {% for fruit in fruits %}
+            <li>{{ fruit|upper }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
