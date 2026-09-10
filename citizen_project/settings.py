@@ -28,12 +28,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY =  os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.getenv("DJ_DEBUG"))
+DEBUG = False
 
 if DEBUG:
     ALLOWED_HOSTS = ["*"]
 else:
     ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
+
+print(DEBUG)
 
 INTERNAL_IPS = [
     "127.0.0.1",
